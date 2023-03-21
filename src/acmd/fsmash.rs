@@ -41,24 +41,24 @@ unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 11.0);
     let lr = PostureModule::lr(fighter.module_accessor);
     if macros::is_excute(fighter) {
-        if(lr==0.0){
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_smash_arc"), Hash40::new("top"), 0, 6.5, -3, 0, -5, -10, 1, true);
+        if(lr>=0.0){
+            macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 6.5, 1.2, -2.5, 2.5, -13.5, 0.8, true);
+            macros::LAST_EFFECT_SET_RATE(fighter, 2.4);
         }
         else{
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_smash_arc"), Hash40::new("top"), 0, 7, -3, 0, -5, -22, 1, true);
+            macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 6.5, 1.2, -182.5, 2.5, -13.5, 0.8, true);
+            macros::LAST_EFFECT_SET_RATE(fighter, 2.4);
         }
-    }
-    if macros::is_excute(fighter) {
         macros::LAST_EFFECT_SET_RATE(fighter, 1.4);
     }
     frame(fighter.lua_state_agent, 16.0);
     if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("tantan_smash_arc"), false, true);
+        macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_attack_arc_d"), false, true);
     }
     frame(fighter.lua_state_agent, 19.0);
     if macros::is_excute(fighter) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_smash_line"), Hash40::new("top"), -0.5, 11, -19.5, 0, 0, 0, 1.6, true);
-        macros::LAST_EFFECT_SET_RATE(fighter, 1);
+        macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
     }
     frame(fighter.lua_state_agent, 20.0);
     if macros::is_excute(fighter) {
@@ -138,11 +138,52 @@ unsafe fn expression_attacks4(fighter: &mut L2CAgentBase) {
     }
 }
 
+
+#[acmd_script( agent = "tantan", script = "effect_attacks4charge", category = ACMD_EFFECT, low_priority )]
+unsafe fn effect_attacks4charge(fighter: &mut L2CAgentBase) {
+    for i in 1..i32::MAX{
+        frame(fighter.lua_state_agent, 5.0);
+        if macros::is_excute(fighter) {
+            macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 15, 0, 4, 0, 0, 0, false);
+        }
+        wait(fighter.lua_state_agent, 5.0);
+        macros::EFFECT(fighter, Hash40::new("sys_smash_flash_s"), Hash40::new("footl"), 0, 0, 0, 0, 0, 0, 1, 4, 4, 4, 0, 0, 0, true);
+    }
+}
+#[acmd_script( agent = "tantan", script = "sound_attacks4charge", category = ACMD_SOUND, low_priority )]
+unsafe fn sound_attacks4charge(fighter: &mut L2CAgentBase) {
+    frame(fighter.lua_state_agent, 2.0);
+    if macros::is_excute(fighter) {
+        println!("PLEASE?!?");
+        macros::PLAY_SE(fighter, Hash40::new("se_common_smash_start"));
+    }
+}
+#[acmd_script( agent = "tantan", script = "expression_attacks4charge", category = ACMD_EXPRESSION, low_priority )]
+unsafe fn expression_attacks4charge(fighter: &mut L2CAgentBase) {
+    if macros::is_excute(fighter) {
+        fighter.clear_lua_stack();
+        lua_args!(fighter,*MA_MSC_CMD_PHYSICS_START_CHARGE, 0.8, 0.6, -1, 0.8, 0.8, -1, Hash40::new("invalid"));
+        smash::app::sv_module_access::physics(fighter.lua_state_agent);
+        fighter.pop_lua_stack(1);
+        
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE, *SLOPE_STATUS_LR);
+        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_smashhold1"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(fighter.lua_state_agent, 61.0);
+    if macros::is_excute(fighter) {
+        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_smashhold2"), 0, true, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+}
+
 pub fn install() {
     install_acmd_scripts!(
         game_attacks4,
         effect_attacks4,
         sound_attacks4,
-        expression_attacks4
+        expression_attacks4,
+
+        effect_attacks4charge,
+        sound_attacks4charge,
+        expression_attacks4charge
     );
 }

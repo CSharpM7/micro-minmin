@@ -10,11 +10,11 @@ fn tantan_update(fighter: &mut L2CFighterCommon) {
             *FIGHTER_STATUS_KIND_ATTACK_100
         ].contains(&status)
         && false{
-            println!("Current:{} Common {} Attack {} 100 {}",
+            println!("Current:{} Start {} Attack {} Hold {}",
             status,
-            *FIGHTER_STATUS_KIND_ATTACK_AIR,
-            *FIGHTER_STATUS_KIND_ATTACK,
-            *FIGHTER_STATUS_KIND_ATTACK_100
+            *FIGHTER_STATUS_KIND_ATTACK_S4_START,
+            *FIGHTER_STATUS_KIND_ATTACK_S4,
+            *FIGHTER_STATUS_KIND_ATTACK_S4_HOLD
         )
         }
     }

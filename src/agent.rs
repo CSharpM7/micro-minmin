@@ -36,7 +36,7 @@ fn agent_init(fighter: &mut L2CFighterCommon) {
 #[fighter_reset]
 fn agent_reset(fighter: &mut L2CFighterCommon) {
     unsafe {
-        agent_start(fighter);
+        //agent_start(fighter);
     }
 }
 

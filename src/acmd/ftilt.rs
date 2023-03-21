@@ -89,7 +89,7 @@ unsafe fn effect_attacks3lw(fighter: &mut L2CAgentBase) {
 unsafe fn sound_attacks3(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 3.0);
     if macros::is_excute(fighter) {
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_tantan_rnd_attack"));
+        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_tantan_rnd_attack01"));
         macros::PLAY_SE(fighter, Hash40::new("se_tantan_swing_m01"));
     }
 }
