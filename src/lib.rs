@@ -84,7 +84,7 @@ pub extern "C" fn main() {
     println!("[smashline_legs::main] Loading...");
     data::install();
     acmd::install();
-    //frame::install();
+    frame::install();
     status::install();
     agent::install();
 }

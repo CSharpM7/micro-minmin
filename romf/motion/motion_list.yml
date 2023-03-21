@@ -8479,6 +8479,33 @@ list:
       xlu_end: 0
       cancel_frame: 20
       no_stop_intp: false
+  landing_air_b:
+    game_script: game_landingairb
+    flags:
+      turn: false
+      loop: false
+      move: false
+      fix_trans: false
+      fix_rot: false
+      fix_scale: false
+      unk_40: false
+      unk_80: true
+      unk_100: false
+      unk_200: false
+      unk_400: false
+    blend_frames: 0
+    animations:
+      - name: c05landingairb.nuanmb
+        unk: 0
+    scripts:
+      - expression_landingairb
+      - sound_landingairb
+      - effect_landingairb
+    extra:
+      xlu_start: 0
+      xlu_end: 0
+      cancel_frame: 20
+      no_stop_intp: false
   landing_air_hi:
     game_script: game_landingairhi
     flags:

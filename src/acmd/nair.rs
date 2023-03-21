@@ -36,10 +36,13 @@ unsafe fn effect_attackairn(fighter: &mut L2CAgentBase) {
 }
 #[acmd_script( agent = "tantan", script = "sound_attackairn", category = ACMD_SOUND )]
 unsafe fn sound_attackairn(fighter: &mut L2CAgentBase) {
+    frame(fighter.lua_state_agent, 2.0);
+    if macros::is_excute(fighter) {
+        macros::PLAY_SE(fighter, Hash40::new("se_tantan_swing_l01"));
+    }
     frame(fighter.lua_state_agent, 3.0);
     if macros::is_excute(fighter) {
-        macros::PLAY_SEQUENCE(fighter, Hash40::new("seq_tantan_rnd_attack"));
-        macros::PLAY_SE(fighter, Hash40::new("se_tantan_swing_l"));
+        macros::PLAY_SE(fighter, Hash40::new("vc_tantan_attack02"));
     }
 }
 #[acmd_script( agent = "tantan", script = "expression_attackairn", category = ACMD_EXPRESSION )]

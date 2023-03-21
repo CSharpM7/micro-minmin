@@ -37,7 +37,7 @@ fn copy_dir_all(src: impl AsRef<Path>, dst: impl AsRef<Path>) -> io::Result<()> 
 pub fn patch_files()
 {
     unsafe {
-        let motionFolder = format!("{}/fighter/tantan/motion/body",&*MOD_DIR.read().unwrap());
+        let motionFolder = format!("{}/fighter/tantan/motion/body/",&*MOD_DIR.read().unwrap());
         let slots=8;
         if !Path::new(motionFolder.as_str()).exists()
         {
@@ -45,12 +45,13 @@ pub fn patch_files()
             return;
         }
         let file = "motion_list.motdiff";
+        let sourceFolder = format!("{}/c00/",motionFolder.as_str());
         let sourceFile = format!("{}/c00/{}",motionFolder.as_str(),file);
         for slot in 1..slots {
             let buffer = if slot<10 {"0"} else {""};
             let destFolder = format!("{}/c{}{}",motionFolder.as_str(),buffer,slot);
-            fs::create_dir_all(destFolder.as_str());
-            copy_dir_all(motionFolder.as_str(),destFolder.as_str());
+            //fs::create_dir_all(destFolder.as_str());
+            copy_dir_all(sourceFolder.as_str(),destFolder.as_str());
             println!("[smashline_tantan::data] copied motion files to {}",destFolder);
         }
 

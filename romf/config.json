@@ -1,14 +1,18 @@
 {
     "new-dir-files": {
         "fighter/tantan/c00": [						
-			"fighter/tantan/motion/body/c00/c03attacks4s.nuanmb",
-			"fighter/tantan/motion/body/c00/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c00/c05attackairf.nuanmb",
-			"fighter/tantan/motion/body/c00/c05attackairn.nuanmb",
 			"fighter/tantan/motion/body/c00/c01attacks3hi.nuanmb",
 			"fighter/tantan/motion/body/c00/c01attacks3lw.nuanmb",
 			"fighter/tantan/motion/body/c00/c01attacks3s.nuanmb",
-			"fighter/tantan/motion/body/c00/c03attacks4charge.nuanmb"
+
+			"fighter/tantan/motion/body/c00/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c00/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c00/c05attackairn.nuanmb",
+			"fighter/tantan/motion/body/c00/c05attackairf.nuanmb",
+			"fighter/tantan/motion/body/c00/c05landingairf.nuanmb",
+			"fighter/tantan/motion/body/c00/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c00/c05landingairb.nuanmb"
         ]
     }
 }
