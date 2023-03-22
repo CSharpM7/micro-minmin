@@ -81,11 +81,40 @@ unsafe fn expression_attackairf(fighter: &mut L2CAgentBase) {
     }
 }
 
+#[acmd_script( agent = "tantan", script = "effect_landingairf", category = ACMD_EFFECT )]
+unsafe fn effect_landingairf(fighter: &mut L2CAgentBase) {
+    if macros::is_excute(fighter) {
+        macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+    }
+}
+#[acmd_script( agent = "tantan", script = "sound_landingairf", category = ACMD_SOUND )]
+unsafe fn sound_landingairf(fighter: &mut L2CAgentBase) {
+    frame(fighter.lua_state_agent, 3.0);
+    if macros::is_excute(fighter) {
+        macros::PLAY_LANDING_SE(fighter, Hash40::new("se_tantan_landing02"));
+    }
+}
+#[acmd_script( agent = "tantan", script = "expression_landingairf", category = ACMD_EXPRESSION )]
+unsafe fn expression_landingairf(fighter: &mut L2CAgentBase) {
+    if macros::is_excute(fighter) {
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_TOP, 2);
+        ControlModule::set_rumble(fighter.module_accessor, Hash40::new("rbkind_lands"), 0, false, *BATTLE_OBJECT_ID_INVALID as u32);
+    }
+    frame(fighter.lua_state_agent, 17.0);
+    if macros::is_excute(fighter) {
+        slope!(fighter, *MA_MSC_CMD_SLOPE_SLOPE_INTP, *SLOPE_STATUS_LR, 5);
+    }
+}
+
 pub fn install() {
     install_acmd_scripts!(
         game_attackairf,
         effect_attackairf,
         sound_attackairf,
-        expression_attackairf
+        expression_attackairf,
+        
+        effect_landingairf,
+        sound_landingairf,
+        expression_landingairf
     );
 }

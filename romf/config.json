@@ -15,7 +15,10 @@
 			"fighter/tantan/motion/body/c00/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c00/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c00/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c00/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c00/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c00/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c01": [						
 			"fighter/tantan/motion/body/c01/c01attacks3hi.nuanmb",

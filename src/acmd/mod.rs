@@ -6,6 +6,8 @@ mod nair;
 mod bair;
 mod fair;
 
+mod specialn;
+
 pub fn install() {
     ftilt::install();
     fsmash::install();
@@ -13,4 +15,6 @@ pub fn install() {
     nair::install();
     bair::install();
     fair::install();
+
+    specialn::install();
 }

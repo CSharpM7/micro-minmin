@@ -82,9 +82,12 @@ std::arch::global_asm!(
 #[no_mangle]
 pub extern "C" fn main() {
     println!("[smashline_legs::main] Loading...");
-    //data::install();
+    data::install();
     acmd::install();
     frame::install();
     status::install();
-    agent::install();
+    println!("[smashline_legs::main] Use Specials: {}",data::use_Specials());
+    if !data::use_Specials(){
+        agent::install();
+    }
 }

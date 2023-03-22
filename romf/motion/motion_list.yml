@@ -8675,7 +8675,9 @@ list:
       unk_200: false
       unk_400: false
     blend_frames: 0
-    animations: []
+    animations: 
+      - name: d00specialairn.nuanmb
+        unk: 0
     scripts:
       - expression_specialairn
       - sound_specialairn
@@ -8684,6 +8686,33 @@ list:
       xlu_start: 0
       xlu_end: 0
       cancel_frame: 0
+      no_stop_intp: false
+  landing_special_n:
+    game_script: game_landingspecialn
+    flags:
+      turn: false
+      loop: false
+      move: false
+      fix_trans: false
+      fix_rot: false
+      fix_scale: false
+      unk_40: false
+      unk_80: true
+      unk_100: false
+      unk_200: false
+      unk_400: false
+    blend_frames: 0
+    animations:
+      - name: d00speciallandingn.nuanmb
+        unk: 0
+    scripts:
+      - expression_landingspecialn
+      - sound_landingspecialn
+      - effect_landingspecialn
+    extra:
+      xlu_start: 0
+      xlu_end: 0
+      cancel_frame: 12
       no_stop_intp: false
   special_air_n_end:
     game_script: game_specialairnend

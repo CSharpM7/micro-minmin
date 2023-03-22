@@ -9,14 +9,45 @@ use std::{
     thread::{self}
 };
 use arcropolis_api;
+use serde::{Deserialize};
+use toml;
 
 const IDENTIFIER: &str = "smashline_legs";
 
 use std::sync::RwLock;
 lazy_static! {
     static ref MOD_DIR: RwLock<String> = RwLock::new("".to_string());
+    static ref USE_SPECIALS: RwLock<bool> = RwLock::new(false);
+}
+pub fn use_Specials() -> bool
+{
+    return *USE_SPECIALS.read().unwrap();
 }
 
+
+#[derive(Deserialize, Default)]
+pub struct SmashlineToml {
+    use_specials: bool
+}
+fn parse_toml()
+{
+    let toml = format!("{}/{}",&*MOD_DIR.read().unwrap(),IDENTIFIER);
+    println!("[smashline_tantan::data] Reading from {}",toml);
+
+    let default_info = SmashlineToml {
+        use_specials: false
+    };
+    let toml_info = match toml::from_str(&std::fs::read_to_string(toml).unwrap_or_default()) {
+        Ok(info) => {
+            info
+        },
+        Err(e) => {
+            skyline_web::DialogOk::ok(format!("Could not parse smashline_legs.toml: /n {}",e));
+            default_info
+        },
+    };
+    *USE_SPECIALS.write().unwrap() = toml_info.use_specials;
+}
 
 fn copy_dir_all(src: impl AsRef<Path>, dst: impl AsRef<Path>) -> io::Result<()> {
     //std::fs::create_dir_all(&dst)?;
@@ -87,6 +118,7 @@ pub fn install() {
             patch_files();
         });
         install_thread.join();
+        parse_toml();
     }
     else{
         println!("[smashline_legs::data] mod folder could not be found");

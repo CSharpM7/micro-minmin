@@ -15,7 +15,16 @@ fn tantan_update(fighter: &mut L2CFighterCommon) {
             *FIGHTER_STATUS_KIND_ATTACK_S4_START,
             *FIGHTER_STATUS_KIND_ATTACK_S4,
             *FIGHTER_STATUS_KIND_ATTACK_S4_HOLD
-        )
+            )
+        }
+        if MotionModule::frame(fighter.module_accessor) < 2.0
+        {
+            println!("Current:{} Special {} Air {} Normal {}",
+            status,
+            *FIGHTER_STATUS_KIND_LANDING_FALL_SPECIAL,
+            *FIGHTER_STATUS_KIND_LANDING_ATTACK_AIR,
+            *FIGHTER_STATUS_KIND_LANDING
+            )
         }
     }
 }
