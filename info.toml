@@ -1,0 +1,8 @@
+display_name="Legs - A Minmin MiniMoveset"
+description="""
+Replaces her nair,fair,bair,ftilt and fsmash, as well as disabled neutral and side special. Dw she can still recover/attack with up special.
+Requires Smashline and Skyline
+"""
+version="1.0"
+category="Param"
+authors="C#"
