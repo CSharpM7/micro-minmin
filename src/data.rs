@@ -88,4 +88,7 @@ pub fn install() {
         });
         install_thread.join();
     }
+    else{
+        println!("[smashline_legs::data] mod folder could not be found");
+    }
 }

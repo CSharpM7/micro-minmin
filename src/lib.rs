@@ -82,7 +82,7 @@ std::arch::global_asm!(
 #[no_mangle]
 pub extern "C" fn main() {
     println!("[smashline_legs::main] Loading...");
-    data::install();
+    //data::install();
     acmd::install();
     frame::install();
     status::install();

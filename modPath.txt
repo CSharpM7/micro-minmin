@@ -1,1 +1,1 @@
-sd:/ultimate/mods/minmin/plugin.nro
+sd:/ultimate/mods/legs/plugin.nro
