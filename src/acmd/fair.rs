@@ -58,6 +58,7 @@ unsafe fn sound_attackairf(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 12.0);
     if macros::is_excute(fighter) {
         macros::PLAY_SE(fighter, Hash40::new("se_tantan_swing_l01"));
+        PLAY_VC(fighter, Hash40::new("vc_tantan_punch_03"),0.5);
     }
 }
 #[acmd_script( agent = "tantan", script = "expression_attackairf", category = ACMD_EXPRESSION )]

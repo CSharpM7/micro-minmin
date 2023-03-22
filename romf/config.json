@@ -1,4 +1,10 @@
 {
+	"unshare-blacklist": [
+		"fighter/tantan/motion/body/c00/c05attackairn.nuanmb",
+		"fighter/tantan/motion/body/c00/c05landingairn.nuanmb",
+		"fighter/tantan/motion/body/c00/c05attackairf.nuanmb",
+		"fighter/tantan/motion/body/c00/c05landingairf.nuanmb"
+    ],
     "new-dir-files": {
         "fighter/tantan/c00": [						
 			"fighter/tantan/motion/body/c00/c01attacks3hi.nuanmb",
@@ -8,11 +14,85 @@
 			"fighter/tantan/motion/body/c00/c03attacks4s.nuanmb",
 			"fighter/tantan/motion/body/c00/c03attacks4charge.nuanmb",
 
-			"fighter/tantan/motion/body/c00/c05attackairn.nuanmb",
-			"fighter/tantan/motion/body/c00/c05attackairf.nuanmb",
-			"fighter/tantan/motion/body/c00/c05landingairf.nuanmb",
 			"fighter/tantan/motion/body/c00/c05attackairb.nuanmb",
 			"fighter/tantan/motion/body/c00/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c01": [						
+			"fighter/tantan/motion/body/c01/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c01/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c01/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c01/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c01/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c01/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c01/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c02": [						
+			"fighter/tantan/motion/body/c02/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c02/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c02/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c02/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c02/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c02/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c02/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c03": [						
+			"fighter/tantan/motion/body/c03/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c03/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c03/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c03/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c03/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c03/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c03/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c04": [						
+			"fighter/tantan/motion/body/c04/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c04/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c04/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c04/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c04/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c04/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c04/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c05": [						
+			"fighter/tantan/motion/body/c05/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c05/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c05/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c05/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c05/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c05/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c05/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c06": [						
+			"fighter/tantan/motion/body/c06/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c06/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c06/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c06/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c06/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c06/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c06/c05landingairb.nuanmb"
+        ],
+        "fighter/tantan/c07": [						
+			"fighter/tantan/motion/body/c07/c01attacks3hi.nuanmb",
+			"fighter/tantan/motion/body/c07/c01attacks3lw.nuanmb",
+			"fighter/tantan/motion/body/c07/c01attacks3s.nuanmb",
+
+			"fighter/tantan/motion/body/c07/c03attacks4s.nuanmb",
+			"fighter/tantan/motion/body/c07/c03attacks4charge.nuanmb",
+
+			"fighter/tantan/motion/body/c07/c05attackairb.nuanmb",
+			"fighter/tantan/motion/body/c07/c05landingairb.nuanmb"
         ]
     }
 }

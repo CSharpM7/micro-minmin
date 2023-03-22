@@ -18,7 +18,6 @@ unsafe fn tantan_attack_s3_end(fighter: &mut L2CFighterCommon) -> L2CValue {
 
 #[status_script(agent = "tantan", status = FIGHTER_STATUS_KIND_ATTACK_S4, condition = LUA_SCRIPT_STATUS_FUNC_STATUS_PRE)]
 unsafe fn tantan_attack_s4_pre(fighter: &mut L2CFighterCommon) -> L2CValue {
-    println!("S4");
     //return fighter.status_pre_AttackS4();
     return false.into();
 }
@@ -38,7 +37,6 @@ unsafe fn tantan_attack_s4_start_pre(fighter: &mut L2CFighterCommon) -> L2CValue
 }
 #[status_script(agent = "tantan", status = FIGHTER_STATUS_KIND_ATTACK_S4_START, condition = LUA_SCRIPT_STATUS_FUNC_STATUS_MAIN)]
 unsafe fn tantan_attack_s4_start_main(fighter: &mut L2CFighterCommon) -> L2CValue {
-    println!("S4 start");
     return fighter.status_AttackS4Start();
     /* 
     if !StopModule::is_stop(fighter.module_accessor) {
@@ -67,7 +65,6 @@ unsafe fn tantan_attack_s4_hold_pre(fighter: &mut L2CFighterCommon) -> L2CValue 
 }
 #[status_script(agent = "tantan", status = FIGHTER_STATUS_KIND_ATTACK_S4_HOLD, condition = LUA_SCRIPT_STATUS_FUNC_STATUS_MAIN)]
 unsafe fn tantan_attack_s4_hold_main(fighter: &mut L2CFighterCommon) -> L2CValue {
-    println!("S4 hold");
     fighter.sub_shift_status_main(L2CValue::Ptr(L2CFighterCommon_bind_address_call_status_AttackS4Hold as *const () as _))
 }
 
