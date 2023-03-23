@@ -133,6 +133,7 @@ unsafe fn tantan_disable_special_s_pre(fighter: &mut L2CFighterCommon) -> L2CVal
         return original!(fighter);
     }
 }
+
 pub fn install() {
     install_status_scripts!(
         tantan_attack_pre,
@@ -148,6 +149,10 @@ pub fn install() {
         tantan_attack_s4_hold_main,
 
         tantan_attack_air_pre,
-        tantan_attack_air_end
+        tantan_attack_air_end,
+        
+        tantan_special_n_pre,
+        tantan_special_n_main,
+        tantan_landing_air_main
     );
 } 
