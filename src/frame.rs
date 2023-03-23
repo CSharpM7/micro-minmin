@@ -82,17 +82,8 @@ fn tantan_update(fighter: &mut L2CFighterCommon) {
     unsafe {
         let status = StatusModule::status_kind(fighter.module_accessor);
         let boma = smash::app::sv_system::battle_object_module_accessor(fighter.lua_state_agent);
+        
         tilt_cancel(fighter,boma,status);
-
-        if MotionModule::frame(fighter.module_accessor) < 2.0
-        {
-            println!("Current:{} Special {} Air {} Normal {}",
-            status,
-            *FIGHTER_STATUS_KIND_LANDING_FALL_SPECIAL,
-            *FIGHTER_STATUS_KIND_LANDING_ATTACK_AIR,
-            *FIGHTER_STATUS_KIND_LANDING
-            )
-        }
     }
 }
 
