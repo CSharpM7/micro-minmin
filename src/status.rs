@@ -101,7 +101,7 @@ unsafe extern "C" fn tantan_special_n_main_loop(fighter: &mut L2CFighterCommon) 
 unsafe fn tantan_landing_air_main(fighter: &mut L2CFighterCommon) -> L2CValue {
     if StatusModule::prev_status_kind(fighter.module_accessor, 0) == *FIGHTER_STATUS_KIND_SPECIAL_N
     {
-        MotionModule::change_motion(fighter.module_accessor, Hash40::new("landing_special_n"), 0.0, 1.0, false, 0.0, false, false);
+        MotionModule::change_motion(fighter.module_accessor, Hash40::new("special_air_n_end"), 0.0, 1.0, false, 0.0, false, false);
         fighter.sub_shift_status_main(L2CValue::Ptr(L2CFighterCommon_bind_address_call_status_LandingAttackAir_Main as *const () as _))
     }
     else{

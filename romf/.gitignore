@@ -1,7 +1,0 @@
-**/target
-**/*.py
-**/*.pyc
-Cargo.lock
-**/blender
-release/WarioShakeUp.7z
-2023030703283038.png
