@@ -121,7 +121,6 @@ unsafe fn expression_specialairn(fighter: &mut L2CAgentBase) {
 
 #[acmd_script( agent = "tantan", script = "game_landingspecialn", category = ACMD_GAME )]
 unsafe fn game_landingspecialn(fighter: &mut L2CAgentBase) {
-    println!("Landed specially");
     if macros::is_excute(fighter) {
         AttackModule::clear_all(fighter.module_accessor);
     }
@@ -137,7 +136,6 @@ unsafe fn effect_landingspecialn(fighter: &mut L2CAgentBase) {
 unsafe fn sound_landingspecialn(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 2.0);
     if macros::is_excute(fighter) {
-        println!("Landed specially");
         macros::PLAY_LANDING_SE(fighter, Hash40::new("se_tantan_landing02"));
     }
 }

@@ -29,7 +29,10 @@
 			"fighter/tantan/motion/body/c01/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c01/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c01/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c01/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c01/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c01/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c02": [						
 			"fighter/tantan/motion/body/c02/c01attacks3hi.nuanmb",
@@ -40,7 +43,10 @@
 			"fighter/tantan/motion/body/c02/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c02/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c02/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c02/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c02/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c02/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c03": [						
 			"fighter/tantan/motion/body/c03/c01attacks3hi.nuanmb",
@@ -51,7 +57,10 @@
 			"fighter/tantan/motion/body/c03/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c03/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c03/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c03/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c03/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c03/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c04": [						
 			"fighter/tantan/motion/body/c04/c01attacks3hi.nuanmb",
@@ -62,7 +71,10 @@
 			"fighter/tantan/motion/body/c04/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c04/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c04/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c04/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c04/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c04/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c05": [						
 			"fighter/tantan/motion/body/c05/c01attacks3hi.nuanmb",
@@ -73,7 +85,10 @@
 			"fighter/tantan/motion/body/c05/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c05/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c05/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c05/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c05/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c05/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c06": [						
 			"fighter/tantan/motion/body/c06/c01attacks3hi.nuanmb",
@@ -84,7 +99,10 @@
 			"fighter/tantan/motion/body/c06/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c06/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c06/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c06/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c06/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c06/d00speciallandingn.nuanmb"
         ],
         "fighter/tantan/c07": [						
 			"fighter/tantan/motion/body/c07/c01attacks3hi.nuanmb",
@@ -95,7 +113,10 @@
 			"fighter/tantan/motion/body/c07/c03attacks4charge.nuanmb",
 
 			"fighter/tantan/motion/body/c07/c05attackairb.nuanmb",
-			"fighter/tantan/motion/body/c07/c05landingairb.nuanmb"
+			"fighter/tantan/motion/body/c07/c05landingairb.nuanmb",
+
+			"fighter/tantan/motion/body/c07/d00specialairn.nuanmb",
+			"fighter/tantan/motion/body/c07/d00speciallandingn.nuanmb"
         ]
     }
 }

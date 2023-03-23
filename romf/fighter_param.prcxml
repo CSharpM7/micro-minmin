@@ -75,7 +75,8 @@
     <hash40 index="71">dummy</hash40>
     <hash40 index="72">dummy</hash40>
     <struct index="73">
-      <float hash="landing_attack_air_frame_f">10</float>
+      <float hash="landing_attack_air_frame_n">6</float>
+      <float hash="landing_attack_air_frame_f">11</float>
       <float hash="landing_attack_air_frame_b">10</float>
     </struct>
     <hash40 index="74">dummy</hash40>

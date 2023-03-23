@@ -18,7 +18,7 @@ pub unsafe fn get_entry(fighter: &mut L2CAgentBase) -> u32 {
 pub unsafe fn PLAY_VC(fighter: &mut L2CAgentBase, vc: Hash40, chance: f32) -> bool {
     let lim = (1.0/chance.clamp(0.0,1.0)) as i32;
     let play_vc = app::sv_math::rand(hash40("fighter"), lim);
-    println!("PlayVC: {} chance: {}",play_vc,lim);
+    //println!("PlayVC: {} chance: {}",play_vc,lim);
     if play_vc == 0 || chance>=1.0 {
         PLAY_SE(fighter, vc);
         return true;
