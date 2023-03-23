@@ -61,7 +61,7 @@ unsafe fn expression_attackairn(fighter: &mut L2CAgentBase) {
 #[acmd_script( agent = "tantan", script = "effect_landingairn", category = ACMD_EFFECT )]
 unsafe fn effect_landingairn(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
-        macros::LANDING_EFFECT(fighter, Hash40::new("sys_v_smoke_a"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
+        macros::LANDING_EFFECT(fighter, Hash40::new("sys_down_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, false);
     }
 }
 #[acmd_script( agent = "tantan", script = "sound_landingairn", category = ACMD_SOUND )]
