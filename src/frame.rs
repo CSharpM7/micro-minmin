@@ -77,16 +77,25 @@ unsafe fn tilt_cancel(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModu
     }
 }
 
+unsafe fn special_disable(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModuleAccessor,status: i32)
+{
+    WorkModule::unable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_N);
+    WorkModule::unable_transition_term_forbid(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_S);
+    WorkModule::unable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_LW);
+}
+
 #[fighter_frame( agent = FIGHTER_KIND_TANTAN )]
 fn tantan_update(fighter: &mut L2CFighterCommon) {
     unsafe {
         let status = StatusModule::status_kind(fighter.module_accessor);
         let boma = smash::app::sv_system::battle_object_module_accessor(fighter.lua_state_agent);
         
-        tilt_cancel(fighter,boma,status);
+        //tilt_cancel(fighter,boma,status);
+        if !data::use_Specials(){
+            special_disable(fighter,boma,status);
+        }
     }
 }
-
 
 pub fn install() {
     smashline::install_agent_frames!(

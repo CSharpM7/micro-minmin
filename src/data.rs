@@ -12,7 +12,7 @@ use arcropolis_api;
 use serde::{Deserialize};
 use toml;
 
-const IDENTIFIER: &str = "smashline_legs";
+const IDENTIFIER: &str = "smashline_legs.toml";
 
 use std::sync::RwLock;
 lazy_static! {
@@ -114,11 +114,12 @@ pub fn inital_setup()->bool {
 
 pub fn install() {
     if inital_setup() {
+        parse_toml();
+        return;
         let install_thread = std::thread::spawn(move || {
             patch_files();
         });
         install_thread.join();
-        parse_toml();
     }
     else{
         println!("[smashline_legs::data] mod folder could not be found");
