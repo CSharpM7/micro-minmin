@@ -120,12 +120,12 @@ unsafe fn expression_landingairf(fighter: &mut L2CAgentBase) {
 
 pub fn install() {
     install_acmd_scripts!(
-        //game_attackairf,
+        game_attackairf,
         effect_attackairf,
         sound_attackairf,
         expression_attackairf,
         
-        game_landingairf,
+        //game_landingairf,
         effect_landingairf,
         sound_landingairf,
         expression_landingairf
