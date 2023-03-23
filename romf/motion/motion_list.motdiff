@@ -22,7 +22,7 @@ altered:
       Some:
         xlu_start: 0
         xlu_end: 0
-        cancel_frame: 50
+        cancel_frame: 45
         no_stop_intp: ~
   attack_air_f:
     game_script: ~

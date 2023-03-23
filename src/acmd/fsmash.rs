@@ -2,7 +2,7 @@ use super::super::*;
 
 #[acmd_script( agent = "tantan", script = "game_attacks4", category = ACMD_GAME )]
 unsafe fn game_attacks4(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 4.0);
+    frame(fighter.lua_state_agent, 5.0);
     if macros::is_excute(fighter) {
         WorkModule::on_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_FLAG_START_SMASH_HOLD);
     }
@@ -42,11 +42,12 @@ unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
     let lr = PostureModule::lr(fighter.module_accessor);
     if macros::is_excute(fighter) {
         if(lr>=0.0){
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 6.5, 1.2, -2.5, 2.5, -13.5, 0.8, true);
+            macros::EFFECT_FLW_POS(fighter, Hash40::new("tantan_attack_dash"), Hash40::new("kneer"), 0, -1, 0, -4, 0, 0, 0.9, true);
+            macros::LAST_EFFECT_SET_COLOR(fighter, 3, 1.2, 0.5);
             macros::LAST_EFFECT_SET_RATE(fighter, 2.4);
         }
         else{
-            macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 6.5, 1.2, -2.5, 2.5, -180.5, 0.8, true);
+            macros::EFFECT_FLW_POS(fighter, Hash40::new("tantan_attack_dash"), Hash40::new("kneer"), 0, 1, 0, -4, 0, 0, 0.9, true);
             macros::LAST_EFFECT_SET_RATE(fighter, 2.4);
         }
         macros::LAST_EFFECT_SET_RATE(fighter, 1.4);
@@ -55,9 +56,9 @@ unsafe fn effect_attacks4(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::EFFECT_OFF_KIND(fighter, Hash40::new("sys_attack_arc_d"), false, true);
     }
-    frame(fighter.lua_state_agent, 19.0);
+    frame(fighter.lua_state_agent, 18.0);
     if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_smash_line"), Hash40::new("top"), -0.5, 11, -19.5, 0, 0, 0, 1.6, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("tantan_smash_line"), Hash40::new("top"), -0.5, 10, -24.0, 0, 0, 0, 1.5, true);
         macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
     }
     frame(fighter.lua_state_agent, 20.0);

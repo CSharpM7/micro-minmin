@@ -25,13 +25,13 @@ unsafe fn game_attackairb(fighter: &mut L2CAgentBase) {
 unsafe fn effect_attackairb(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 7.0);
     if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_b"), Hash40::new("top"), -1.5, 6.25, -6, -171, 47, 2.9, 1.1, true);
+        macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_b"), Hash40::new("top"), -1.5, 8.1, -6, -151, 47, 2.9, 0.9, true);
         macros::LAST_EFFECT_SET_RATE(fighter, 1.5);
         //EffectModule::enable_sync_init_pos_last(fighter.module_accessor);
     }
     frame(fighter.lua_state_agent, 8.0);
     if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 11, -15, 0, 0, 0, 0.9, false, 0.5);
+        macros::EFFECT_FOLLOW_ALPHA(fighter, Hash40::new("sys_attack_impact"), Hash40::new("top"), 0, 11.5, -14, 0, 0, 0, 0.9, false, 0.5);
         macros::LAST_EFFECT_SET_RATE(fighter, 1.3);
     }
 }
