@@ -27,7 +27,7 @@ unsafe fn tilt_cancel(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModu
             *FIGHTER_TANTAN_STATUS_KIND_ATTACK_WALK_BRAKE_BACK
         ].contains(&status);
         if (specialAttack){
-            println!("Request cancel on frame {},motion {}",currentFrame,motionFrame);
+            //println!("Request cancel on frame {},motion {}",currentFrame,motionFrame);
             //There'S GOTTA be a better way than this 
             if StatusModule::situation_kind(fighter.module_accessor) != *SITUATION_KIND_AIR
             {
@@ -63,11 +63,11 @@ unsafe fn tilt_cancel(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModu
                 || (ControlModule::get_pad_flag(boma) & *FIGHTER_PAD_FLAG_ATTACK_TRIGGER) != 0 
                 {
                     println!("Aerial");
-                    if (WorkModule::is_flag(fighter.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_BACK_PUNCH_L))
-                    || (WorkModule::is_flag(fighter.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_BACK_PUNCH_R))
+                    if (WorkModule::is_flag(fighter.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_CHECK_REVERSE_LR))
+                    || (WorkModule::is_flag(fighter.module_accessor, *FIGHTER_TANTAN_INSTANCE_WORK_ID_FLAG_ATTACK_REVERSE_LR))
                     {
                         println!("Switch");
-                        PostureModule::set_lr(boma, -PostureModule::lr(boma));
+                        PostureModule::reverse_lr(boma);
                     }
                     fighter.change_status(FIGHTER_STATUS_KIND_ATTACK_AIR.into(), false.into());
                     //StatusModule::change_status_request_from_script(boma, 54, true);
