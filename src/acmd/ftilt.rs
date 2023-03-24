@@ -26,10 +26,6 @@ unsafe fn game_attacks3(fighter: &mut L2CAgentBase) {
 
 #[acmd_script( agent = "tantan", script = "effect_attacks3hi", category = ACMD_EFFECT )]
 unsafe fn effect_attacks3hi(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("szero_smash_fire"), Hash40::new("toer"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
-    }
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 11.5, 2.2, -21.5, 2.5, 13.5, 1, true);
@@ -39,17 +35,9 @@ unsafe fn effect_attacks3hi(fighter: &mut L2CAgentBase) {
     if macros::is_excute(fighter) {
         macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
     }
-    frame(fighter.lua_state_agent, 17.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("szero_smash_fire"), false, false);
-    }
 }
 #[acmd_script( agent = "tantan", script = "effect_attacks3", category = ACMD_EFFECT )]
 unsafe fn effect_attacks3(fighter: &mut L2CAgentBase) {
-    frame(fighter.lua_state_agent, 4.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_FOLLOW(fighter, Hash40::new("szero_smash_fire"), Hash40::new("toer"), 0, -0.7, 0, 0, 0, 0, 0.6, true);
-    }
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         macros::EFFECT_FOLLOW(fighter, Hash40::new("sys_attack_arc_d"), Hash40::new("top"), 2, 8.5, 2.2, -8.5, 17, 9.5, 1, true);
@@ -58,10 +46,6 @@ unsafe fn effect_attacks3(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
-    }
-    frame(fighter.lua_state_agent, 17.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("szero_smash_fire"), false, false);
     }
 }
 #[acmd_script( agent = "tantan", script = "effect_attacks3lw", category = ACMD_EFFECT )]
@@ -74,10 +58,6 @@ unsafe fn effect_attacks3lw(fighter: &mut L2CAgentBase) {
     frame(fighter.lua_state_agent, 6.0);
     if macros::is_excute(fighter) {
         macros::FOOT_EFFECT(fighter, Hash40::new("sys_run_smoke"), Hash40::new("top"), 0, 0, 0, 0, 0, 0, 1.2, 0, 0, 0, 0, 0, 0, false);
-    }
-    frame(fighter.lua_state_agent, 17.0);
-    if macros::is_excute(fighter) {
-        macros::EFFECT_OFF_KIND(fighter, Hash40::new("szero_smash_fire"), false, false);
     }
 }
 

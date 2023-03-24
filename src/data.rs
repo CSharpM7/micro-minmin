@@ -81,7 +81,7 @@ pub fn patch_files()
         for slot in 1..slots {
             let buffer = if slot<10 {"0"} else {""};
             let destFolder = format!("{}/c{}{}",motionFolder.as_str(),buffer,slot);
-            //fs::create_dir_all(destFolder.as_str());
+            fs::create_dir_all(destFolder.as_str());
             copy_dir_all(sourceFolder.as_str(),destFolder.as_str());
             println!("[smashline_tantan::data] copied motion files to {}",destFolder);
         }
