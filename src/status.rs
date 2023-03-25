@@ -70,7 +70,7 @@ unsafe fn tantan_special_n_main(fighter: &mut L2CFighterCommon) -> L2CValue {
     {
         let fighter_log_attack_kind = *FIGHTER_LOG_ATTACK_KIND_ATTACK_AIR_F;
         smash_script::notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2b94de0d96), FIGHTER_LOG_ACTION_CATEGORY_KEEP, fighter_log_attack_kind);
-        let motion_kind = Hash40::new("attack_air_f").hash;//MotionModule::motion_kind(fighter.module_accessor);
+        let motion_kind = Hash40::new("attack_air_f").hash;
         WorkModule::set_int64(fighter.module_accessor, motion_kind as i64, *FIGHTER_STATUS_ATTACK_AIR_WORK_INT_MOTION_KIND);
 
 
@@ -81,20 +81,6 @@ unsafe fn tantan_special_n_main(fighter: &mut L2CFighterCommon) -> L2CValue {
     else{
         return original!(fighter);
     }
-}
-unsafe extern "C" fn tantan_special_n_main_loop(fighter: &mut L2CFighterCommon) -> L2CValue {
-    if MotionModule::is_end(fighter.module_accessor) {
-        fighter.change_status(FIGHTER_STATUS_KIND_FALL_SPECIAL.into(), false.into());
-    }
-    if StatusModule::situation_kind(fighter.module_accessor) ==*SITUATION_KIND_GROUND{
-        if (WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)){
-            fighter.change_status(FIGHTER_TANTAN_STATUS_KIND_ATTACK_LANDING.into(), false.into());
-        }
-        else{
-            fighter.change_status(FIGHTER_STATUS_KIND_WAIT.into(), false.into());
-        }
-    }
-    return true.into()
 }
 
 #[status_script(agent = "tantan", status = FIGHTER_STATUS_KIND_LANDING_ATTACK_AIR, condition = LUA_SCRIPT_STATUS_FUNC_STATUS_MAIN)]
@@ -133,7 +119,41 @@ unsafe fn tantan_disable_special_s_pre(fighter: &mut L2CFighterCommon) -> L2CVal
         return original!(fighter);
     }
 }
+#[status_script(agent = "tantan", status = FIGHTER_STATUS_KIND_SPECIAL_N, condition = LUA_SCRIPT_STATUS_FUNC_STATUS_MAIN)]
+unsafe fn tantan_disable_special_n_main(fighter: &mut L2CFighterCommon) -> L2CValue {
+    let fighter_log_attack_kind = *FIGHTER_LOG_ATTACK_KIND_ATTACK_AIR_N;
+    smash_script::notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2b94de0d96), FIGHTER_LOG_ACTION_CATEGORY_KEEP, fighter_log_attack_kind);
+    let motion_kind = Hash40::new("attack_air_n");
+    WorkModule::set_int64(fighter.module_accessor, motion_kind.hash as i64, *FIGHTER_STATUS_ATTACK_AIR_WORK_INT_MOTION_KIND);
 
+    MotionModule::change_motion(fighter.module_accessor, motion_kind, 0.0, 1.0, false, 0.0, false, false);
+    fighter.sub_shift_status_main(L2CValue::Ptr(L2CFighterCommon_bind_address_call_status_AttackAir_Main as *const () as _))
+}
+#[status_script(agent = "tantan", status = FIGHTER_STATUS_KIND_SPECIAL_S, condition = LUA_SCRIPT_STATUS_FUNC_STATUS_MAIN)]
+unsafe fn tantan_disable_special_s_main(fighter: &mut L2CFighterCommon) -> L2CValue {
+    let fighter_log_attack_kind = *FIGHTER_LOG_ATTACK_KIND_ATTACK_AIR_F;
+    smash_script::notify_event_msc_cmd!(fighter, Hash40::new_raw(0x2b94de0d96), FIGHTER_LOG_ACTION_CATEGORY_KEEP, fighter_log_attack_kind);
+    let motion_kind = Hash40::new("attack_air_f");
+    WorkModule::set_int64(fighter.module_accessor, motion_kind.hash as i64, *FIGHTER_STATUS_ATTACK_AIR_WORK_INT_MOTION_KIND);
+
+    MotionModule::change_motion(fighter.module_accessor, motion_kind, 0.0, 1.0, false, 0.0, false, false);
+    fighter.sub_shift_status_main(L2CValue::Ptr(L2CFighterCommon_bind_address_call_status_AttackAir_Main as *const () as _))
+}
+
+unsafe extern "C" fn tantan_disable_special_main_loop(fighter: &mut L2CFighterCommon) -> L2CValue {
+    if MotionModule::is_end(fighter.module_accessor) {
+        fighter.change_status(FIGHTER_STATUS_KIND_FALL_SPECIAL.into(), false.into());
+    }
+    if StatusModule::situation_kind(fighter.module_accessor) ==*SITUATION_KIND_GROUND{
+        if (WorkModule::is_flag(fighter.module_accessor, *FIGHTER_STATUS_ATTACK_AIR_FLAG_ENABLE_LANDING)){
+            fighter.change_status(FIGHTER_TANTAN_STATUS_KIND_ATTACK_LANDING.into(), false.into());
+        }
+        else{
+            fighter.change_status(FIGHTER_STATUS_KIND_WAIT.into(), false.into());
+        }
+    }
+    return true.into()
+}
 pub fn install() {
     install_status_scripts!(
         tantan_attack_pre,
@@ -149,10 +169,21 @@ pub fn install() {
         tantan_attack_s4_hold_main,
 
         tantan_attack_air_pre,
-        tantan_attack_air_end,
-        
-        tantan_special_n_pre,
-        tantan_special_n_main,
-        tantan_landing_air_main
+        tantan_attack_air_end
     );
+    if data::use_Specials(){
+        install_status_scripts!(
+            tantan_special_n_pre,
+            tantan_special_n_main,
+            tantan_landing_air_main
+        );
+    }
+    else{
+        install_status_scripts!(
+            tantan_disable_special_n_pre,
+            tantan_disable_special_s_pre,
+            tantan_disable_special_n_main,
+            tantan_disable_special_s_main
+        );
+    }
 } 

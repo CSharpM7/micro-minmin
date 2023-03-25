@@ -100,7 +100,8 @@ fn tantan_update(fighter: &mut L2CFighterCommon) {
         
         //tilt_cancel(fighter,boma,status);
         if !data::use_Specials(){
-            special_air_hi(fighter,boma,status);
+            WorkModule::unable_transition_term(fighter.module_accessor, *FIGHTER_PAD_CMD_CAT1_FLAG_SPECIAL_N);
+            WorkModule::unable_transition_term(fighter.module_accessor, *FIGHTER_PAD_CMD_CAT1_FLAG_SPECIAL_S);
         }
     }
 }
