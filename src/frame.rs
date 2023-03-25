@@ -31,7 +31,10 @@ unsafe fn tilt_cancel(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModu
             //There'S GOTTA be a better way than this 
             if StatusModule::situation_kind(fighter.module_accessor) != *SITUATION_KIND_AIR
             {
-                if (ControlModule::get_command_flag_cat(boma, 0) & *FIGHTER_PAD_CMD_CAT1_FLAG_ATTACK_S3) != 0 {
+                if (ControlModule::get_command_flag_cat(boma, 0) & *FIGHTER_PAD_CMD_CAT1_FLAG_ATTACK_N) != 0 {
+                    StatusModule::change_status_request_from_script(boma, *FIGHTER_STATUS_KIND_ATTACK, true);
+                } 
+                else if (ControlModule::get_command_flag_cat(boma, 0) & *FIGHTER_PAD_CMD_CAT1_FLAG_ATTACK_S3) != 0 {
                     StatusModule::change_status_request_from_script(boma, *FIGHTER_STATUS_KIND_ATTACK_S3, true);
                 } 
                 else if (ControlModule::get_command_flag_cat(boma, 0) & *FIGHTER_PAD_CMD_CAT1_FLAG_ATTACK_HI3) != 0 {
@@ -77,11 +80,16 @@ unsafe fn tilt_cancel(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModu
     }
 }
 
-unsafe fn special_disable(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModuleAccessor,status: i32)
+unsafe fn special_air_hi(fighter: &mut L2CFighterCommon,boma: &mut BattleObjectModuleAccessor,status: i32)
 {
-    WorkModule::unable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_N);
-    WorkModule::unable_transition_term_forbid(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_S);
-    WorkModule::unable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_LW);
+    if (ControlModule::get_command_flag_cat(boma, 0) & *FIGHTER_PAD_CMD_CAT1_FLAG_SPECIAL_HI) != 0
+    && StatusModule::situation_kind(boma) == *SITUATION_KIND_AIR
+    {
+        if WorkModule::is_enable_transition_term(boma, *FIGHTER_STATUS_TRANSITION_TERM_ID_CONT_SPECIAL_HI)
+        {
+            StatusModule::change_status_request_from_script(boma, *FIGHTER_STATUS_KIND_SPECIAL_HI, false);
+        }
+    }
 }
 
 #[fighter_frame( agent = FIGHTER_KIND_TANTAN )]
@@ -92,7 +100,7 @@ fn tantan_update(fighter: &mut L2CFighterCommon) {
         
         //tilt_cancel(fighter,boma,status);
         if !data::use_Specials(){
-            special_disable(fighter,boma,status);
+            special_air_hi(fighter,boma,status);
         }
     }
 }
